@@ -15,6 +15,7 @@ function BookDetails() {
     const isAdmin = true;
     const navigate = useNavigate();
     const { id } = useParams();
+     // console.log(useParams());  //PARAMS contains id=_id(book Id value)
 
     const handleEdit = () => {
         console.log("Navigating to edit book with ID:", id); 
@@ -24,7 +25,7 @@ function BookDetails() {
     const getBookData = async () => {
         try {
             const result = await getBookByID(id);
-            setBookDetails(result); 
+            setBookDetails(result);  ////Using UseState function setBookDetails to set the data
         } catch (error) {
             console.error(error, `Error getting details for the book with ID ${id}`);
         }
@@ -40,43 +41,64 @@ function BookDetails() {
             getBookData(); 
         }
     }, [id]);
-
+// Hanle Ad to Cart here Set state and maintain local storage
     const handleCart = () => {
-        if (!cart.includes(id)) {
+        if (!cart.includes(id)) {  //Check if the useContext has value of ID then Add ToCART 
             addToCart(id);
-            setShowRemoveCart(true);
+            setShowRemoveCart(true); //Iff added than show Remove from cart option
             alert("Book added successfully to the cart");
         } else {
-            removeFromCart(id);
-            setShowRemoveCart(false);
+            removeFromCart(id);  //If ID is  there in cart and uses click Remove than remove from the cart
+            setShowRemoveCart(false); //Show add to cart button
             alert("Book removed from the cart.");
         }
     };
-
-    const addReview = async () => {
-        if (review) {
-            const timestamp = new Date().toISOString();
-            const recentReview = {
-                comment: review,
-                timestamp: timestamp,
-            };
-            const updatedReviews = [...bookDetails.reviews, recentReview];
-            try {
-                const updatedBook = await updateBook(id, { reviews: updatedReviews });
-                setBookDetails(updatedBook); 
-                setReview(""); 
-                setShowReviewForm(false); 
-            } catch (error) {
-                console.error("Error adding review:", error);
-            }
-        }
-    };
-
+ 
+      // Update book with new review
+   const addReview = async () => {
+     if (review) {
+       try {
+              // Get the current timestamp (ISO format)
+       const timestamp = new Date().toISOString();
+ 
+       // Create review data
+       const recentReview = 
+         {
+           comment: review,
+           timestamp: timestamp,
+         }
+       
+       console.log(recentReview);
+       console.log(id)
+ 
+           // Add the review to the list of reviews (could be saved in a database in a real app)
+         setReview([...bookDetails.reviews, review]);
+       console.log("Review from line 90",review[0].comment);
+      // Append the new review to existing reviews
+       const updatedReviews = [...bookDetails.reviews, recentReview];
+       // Update the book with the new review combination of old Plus new in updatedReviews
+       console.log("Review from line 94",updatedReviews);
+       const updatedBook = await updateBook(id, {
+         reviews: updatedReviews
+       });
+ 
+   
+         setBookDetails(updatedBook); // Update book details in the state
+         setReview(""); // Reset review field
+         setShowReviewForm(false); // Close the form after submission
+       } catch (error) {
+         console.error("Error adding review:", error);
+       }
+     }
+   };
+ 
+   //This functionality would only be available for admin if he clicks delete product
     const handleDelete = async () => {
         let confirmDelete = prompt("Are you sure you want to delete? Confirm by writing delete.");
         if (confirmDelete === "delete") {
             try {
                 const response = await deleteBook(id);
+                console.log(response)
                 navigate("/allbooks");
             } catch (error) {
                 console.error("Failed to delete book.", error);
@@ -85,7 +107,7 @@ function BookDetails() {
     };
 
     return (
-        <div className="p-6">
+        <div className="bg-black p-8">
             {bookDetails ? (
                 <div className="bg-zinc-900 text-white rounded-lg p-6">
                     <div className="flex flex-col md:flex-row gap-6">
@@ -93,12 +115,12 @@ function BookDetails() {
                             <img
                                 src={bookDetails.url}
                                 alt="bookimage"
-                                className="w-full h-auto rounded-lg mt-20 ml-15 mb-20"
+                                className="w-full h-180 rounded-lg mt-20 ml-15 mb-20 border-5 border-yellow-500"
                             />
                         </div>
 
                         <div className="md:w-2/3">
-                            <div className="mb-4 mt-20 ml-30">
+                            <div className="mb-4 mt-22 ml-30">
                                 <h1 className="text-3xl font-bold">{bookDetails.title}</h1>
                                 <h2 className="text-xl text-gray-400 mt-5">{bookDetails.author}</h2>
                                 <h3 className="text-xl text-gray-400">Category: {bookDetails.category}</h3>

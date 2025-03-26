@@ -18,6 +18,22 @@
     object-position: center;
     border-radius: 0.5rem;
   }
+  .globalCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width:20%;
+    transition: transform 0.2s ease-in-out;
+    border-radius: 0.5rem;
+  }
+  .globalCard img{
+    width: 50%;
+    height: 200px;  /* Set height to something more reasonable */
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.5rem;
+  }
   .cartcountbadge{
     position: absolute;
     top: -1px;

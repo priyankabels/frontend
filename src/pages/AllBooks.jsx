@@ -1,22 +1,23 @@
-import  { useState,useEffect } from "react";
+import  { useState,useEffect } from "react";  
 import React from "react";
-import { getBooks } from "../api/book";
+import { getBooks } from "../api/book";  //This points to API from backend
 import BookCard from "../components/BookCard";
 
 
 function AllBooks(){
-    const [books,setBooks]=useState(null);
+    const [books,setBooks]=useState(null);  //Books and SetBooks to maintain the state and will store data fro API
     const fetchBooks=async()=>{
         try {
-            const response=await getBooks();
+            const response=await getBooks();  //It will get details for all the books 
             console.log(response)
+            //This setBooks is state method that will set books
             setBooks(response)
             
         } catch (error) {
             console.error("Failed to get books",error);
         }
     }
-    useEffect(()=>{
+    useEffect(()=>{ //On load Fetch the books
         fetchBooks()
     },[]);  //no dependencies right now 
     return(
@@ -25,7 +26,7 @@ function AllBooks(){
         {
             //If books present than show all books
             books?(
-                <div className="bookList grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4">
+                <div className="bookList grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 p-4">
                 {
                   books && books.map((book, index) =>
                     <div key={index}>

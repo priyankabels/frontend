@@ -7,6 +7,7 @@ import AddBook from './pages/AddBook'
 import { Routes,Route } from 'react-router-dom'
 import AllBooks from './pages/AllBooks'
 import BookDetails from './pages/BookDetails'
+import GlobalExplorer from './pages/GlobalExplorer'
 import Cart from "./pages/Cart"
 import { CartProvider } from './context/CartContext'
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/allBooks" element={<AllBooks/>}/>
         <Route path="/bookdetails/:id" element={<BookDetails />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/globalBooks" element={<GlobalExplorer/>}/>
        </Routes>
       <Footer/>
       </CartProvider>

@@ -28,14 +28,14 @@ const [recentbooks,setRecentbooks]=useState(null); //Creting use state to get bo
         getBook();
     },[]);  //Nodependencies so should run once after render
     return(
-        <div className='px-4 py-2'>
-        <h4 className='text-3xl text-green-700'>Recently added</h4>
+        <div className='px-4 py-2 bg-black'>
+        <h2 className='text-3xl text-yellow-500 mt-5'>Newly added books to our store</h2>
         {!recentbooks &&
           <div className='flex item-center justify-center'>
           <h1>Loading...</h1>
           </div>
         }
-        <div className='my-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 lg:gap-8 '>
+        <div className='my-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 lg:gap-8 '>
   
           {
             recentbooks &&

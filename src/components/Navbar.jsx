@@ -32,9 +32,9 @@ const { cart } = useContext(CartContext); // Get cart data from context
             <div className="hidden md:flex space-x-6">
           <Link to="/home" className="text-lg hover:text-yellow-500 transition duration-200">Home</Link>
           <Link to="/allBooks" className="text-lg hover:text-yellow-500 transition duration-200">All Books</Link>
-          <Link to="/login" className="text-lg hover:text-yellow-500 transition duration-200">Login</Link>  
+          
           <Link to="/addBook" className="text-lg hover:text-yellow-500 transition duration-200">Add Book</Link>
-          <Link to="/addBook" className="text-lg hover:text-yellow-500 transition duration-200">Global Book</Link>
+          <Link to="/globalBooks" className="text-lg hover:text-yellow-500 transition duration-200">Global Book</Link>
 
 
 
@@ -47,7 +47,7 @@ const { cart } = useContext(CartContext); // Get cart data from context
               </span>
             )}
           </div>
-
+          <Link to="/login" className="text-lg hover:text-yellow-500 transition duration-200">Login</Link>  
         
         </div>
       </div>
