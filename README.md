@@ -13,12 +13,12 @@
 
 # API endpoints used in this application
 
-GET - api/book
-POST -api/book
-GET book by ID - api/book/{bookID}
-PUT book by ID - api/book/{bookID}
-DELETE book by ID - api/book/{bookID}
-GET RECENT books -api/book/recentbooks/get4
+- GET - api/book
+- POST -api/book
+- GET book by ID - api/book/{bookID}
+- PUT book by ID - api/book/{bookID}
+- DELETE book by ID - api/book/{bookID}
+- GET RECENT books -api/book/recentbooks/get4
 
 - Third Party API
 https://www.googleapis.com/books/v1/volumes/
