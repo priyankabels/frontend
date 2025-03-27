@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import {Link} from 'react-router-dom'
-import logoImg from "../assets/logo.jpg"
+import logoImg from "../assets/book_logo.jpeg"
 
 import { FaShoppingCart } from "react-icons/fa";
 import { CartContext } from "../context/CartContext"; // Import the CartContext

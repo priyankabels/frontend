@@ -1,7 +1,7 @@
 import React from "react";
 import {useState,useEffect,useContext} from "react";
 import { getBookByID } from "../api/book";
-
+import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext"; // Import CartContext
 
 
@@ -93,14 +93,18 @@ useEffect(() => {
         {bookDetails.length > 0 ? (
           <div>
             {/* Display cart items */}
+          
             <ul>
               {bookDetails.map((book) => (
                 <li key={book._id} className="flex justify-between items-center mb-4 p-4 bg-gray-800 rounded-lg">
                   <div>
+                  <Link to={`/bookdetails/${book._id}`}>
                     <h2 className="text-xl text-white">{book.title}</h2>
                     <p className="text-gray-400">{book.author}</p>
                     <p className="text-gray-400">Price: ${book.price}</p>
+                    </Link>
                   </div>
+
                   <button
                     className="bg-orange-800 text-white px-4 py-2 rounded-lg"
                     onClick={() => handleRemoveFromCart(book._id)}
@@ -110,6 +114,7 @@ useEffect(() => {
                 </li>
               ))}
             </ul>
+         
 
             {/* Total Price */}
             <div className="mt-6 text-lg font-semibold">
@@ -118,7 +123,7 @@ useEffect(() => {
 
             {/* Checkout Button */}
             <div className="mt-6">
-              <button className="bg-blue-500 text-white px-6 py-3 rounded-lg w-1/3 align-center">
+              <button className="text-xl bg-yellow-400 text-white px-6 py-3 rounded-lg w-60 align-center">
                 Proceed to Checkout
               </button>
             </div>

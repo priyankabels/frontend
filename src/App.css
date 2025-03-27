@@ -1,6 +1,6 @@
 .logoImg{
-  width: 20px;
-  height: 20px;
+  width: 50px;
+  height: 40px;
 }
 .bookCard {
     display: flex;
@@ -17,6 +17,7 @@
     object-fit: cover;
     object-position: center;
     border-radius: 0.5rem;
+    align-items: center;
   }
   .globalCard {
     display: flex;
