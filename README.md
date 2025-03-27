@@ -1,12 +1,17 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# BookStore Application 
+## This is a application for book lovers who can view Book, its details and Add to Cart if already in Cart remove from Cart and view cart and further order the book is a future scope. It also gives some admin functionalities liek add, delete and Remove a book from our database.
 
-Currently, two official plugins are available:
+ We have below pages in Priyanka's BookStore
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Home Page or Landing Page which shows recently added books 
+- All Books page which shows all books that are available in our database
+- View Book Details page which shows description for the Book and gives Add Cart , Remove Cart option . On this page also when user is admin he will be able to see EDIT and DELETE book
+- Add Book page which is also availabel only for admin
+- Cart Page which shows all the added books and their total , it also gives an option to delete or remoce from the cart and adjust total accordingly
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Technologies Used:
+BACKEND : MongoDB /Momgoose
+FRONTEND : REACT, Javascript, Tailwind

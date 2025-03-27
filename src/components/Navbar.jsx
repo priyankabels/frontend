@@ -34,7 +34,7 @@ const { cart } = useContext(CartContext); // Get cart data from context
           <Link to="/allBooks" className="text-lg hover:text-yellow-500 transition duration-200">All Books</Link>
           
           <Link to="/addBook" className="text-lg hover:text-yellow-500 transition duration-200">Add Book</Link>
-          <Link to="/globalBooks" className="text-lg hover:text-yellow-500 transition duration-200">Global Book</Link>
+          <Link to="/globalBooks" className="text-lg hover:text-yellow-500 transition duration-200">Google Books</Link>
 
 
 

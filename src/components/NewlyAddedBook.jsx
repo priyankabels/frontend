@@ -35,7 +35,7 @@ const [recentbooks,setRecentbooks]=useState(null); //Creting use state to get bo
           <h1>Loading...</h1>
           </div>
         }
-      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-6 p-4">
+      <div className="bookListHome grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-6 p-4">
         {recentbooks && recentbooks.length > 0 ? (
           recentbooks.map((book) => (
             <div key={book.id || book.title}> {/* Use a unique identifier if possible */}
